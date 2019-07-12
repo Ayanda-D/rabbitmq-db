@@ -19,9 +19,10 @@ defmodule RabbitDB.Interceptor do
 
   def intercept(basic_publish(exchange:    exchange,
                               routing_key: routing_key,
-                              mandatory:   mandatory), content, _state) do
-    content = :rabbit_binary_parser.ensure_content_decoded(content)
-    process_db(exchange, routing_key, mandatory, content)
+                              mandatory:   mandatory) = method, content, _state) do
+    content_decoded = :rabbit_binary_parser.ensure_content_decoded(content)
+    process_db(exchange, routing_key, mandatory, content_decoded)
+    {method, content}
   end
 
   def intercept(method, content, _vhost) do
