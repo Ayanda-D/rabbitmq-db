@@ -32,7 +32,7 @@ The RabbitMQ Database Plugin uses [Ecto](https://github.com/elixir-ecto/ecto) to
 
 ```
 config :rabbitmq_db, RabbitDB.Repo,
-  database: "rabbitmq_db",
+  database: "rabbitmq-db",
   username: "root",
   password: "rabbitmq",
   hostname: "localhost"
