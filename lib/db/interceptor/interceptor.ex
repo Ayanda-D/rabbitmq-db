@@ -14,7 +14,7 @@ defmodule RabbitDB.Interceptor do
   end
 
   def description() do
-    [description: "Stores messages in a database as the enter rabbitmq"]
+    [description: "Stores published messages in a configure database of choice"]
   end
 
   def intercept(basic_publish(exchange:    exchange,
@@ -60,7 +60,6 @@ defmodule RabbitDB.Interceptor do
     message_properties = %MessageProperties{message_id: message_id,
                                             class_id:   class_id,
                                             expiry:     expiration,
-                                            # needs_confirming: ,
                                             size: :erlang.iolist_size(pfr),
                                             content_type: content_type,
                                             content_encoding: content_encoding,
@@ -79,10 +78,7 @@ defmodule RabbitDB.Interceptor do
       %MessagePropertiesEncoded{message_id: message_id,
                                 properties_bin: properties_bin,
                                 protocol: protocol}
-    for entry <- [message, message_properties, message_properties_encoded] do
-      Repo.insert!(entry)
-      #spawn fn(entry) -> Repo.insert!(entry) end
-    end
+    Enum.map([message, message_properties, message_properties_encoded],
+      fn(entry) -> spawn fn -> Repo.insert!(entry) end end)
   end
-
 end

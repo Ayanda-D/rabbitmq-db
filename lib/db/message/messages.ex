@@ -6,7 +6,7 @@ defmodule RabbitDB.Message do
   use Ecto.Schema
 
   schema "rabbitmq-message" do
-    field :message_id, :string
+    field :message_id, :binary
     field :message, :binary
     field :exchange, :binary
     field :routing_key, :binary

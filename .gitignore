@@ -3,6 +3,7 @@
 *.beam
 *.ez
 .erlang.mk/
+.elixir_ls/
 .DS_Store
 MnesiaCore.*
 /_build/

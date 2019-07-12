@@ -29,11 +29,11 @@ use Mix.Config
 #
 #     import_config "#{Mix.env()}.exs"
 
-config :rabbitmq_db,
-  encoded_only: false
+# config :rabbitmq_db,
+#   encoded_only: false
 
 config :rabbitmq_db, RabbitDB.Repo,
-  database: "rabbitmq_db",
+  database: "rabbitmq-db",
   username: "root",
   password: "rabbitmq",
   hostname: "localhost"
