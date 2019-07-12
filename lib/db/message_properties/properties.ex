@@ -1,6 +1,6 @@
 defmodule RabbitDB.Message.Properties do
   @moduledoc """
-  Database mode for RabbitMQ messages
+    Ecto Schema for RabbitMQ Message Properties
   """
 
   use Ecto.Schema

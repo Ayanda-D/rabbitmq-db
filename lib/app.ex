@@ -1,4 +1,7 @@
 defmodule RabbitDB.Application do
+  @moduledoc """
+    RabbitMQ DB Application Callback
+  """
 
   def start(_type, _args) do
     children = [

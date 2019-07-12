@@ -1,4 +1,22 @@
 defmodule RabbitDB.Interceptor do
+  @moduledoc """
+    The RabbitDB Message interceptor captures ingress messages
+    in the local RabbitMQ node on which the plugin is enabled
+    and extract message content and properties, inserts into
+    three tables in the `rabbitmq-db` database:
+
+      * `rabbitmq-message` - table used to store published messages
+            along with the target exchange, routing-key and
+            mandatory field.
+
+      * `rabbitmq-message-properties` - table used to store
+            message properties and metadata of published messages
+
+      * `rabbitmq-message-properties-encoded` - table used to store
+            encoded message properties and metadata of published
+            messages. The encoding protocol is also stored as part
+            of each encoded message table entry
+  """
 
   @behaviour :rabbit_channel_interceptor
 
