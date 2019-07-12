@@ -1,6 +1,6 @@
 # RabbitMQ Database Plugin
 
-The RabbitMQ Database Plugin is a tool used  store messages published to a RabbitMQ node along with their properties in a database storage of choice. On the configured database backend engine, e.g. [PostgreSQL](https://www.postgresql.org/), [MySQL](https://www.mysql.com/), [MSSQL](https://www.microsoft.com/en-in/sql-server/sql-server-2019), [RiakKV](https://docs.riak.com/index.html), e.t.c, the plugin creates a database of name `rabbitmq_db`, within which it creates 3 tables for storing messages as well as their properties on interception of messages being published into RabbitMQ. The tables created and used for storing messages and their metadata are:
+The RabbitMQ Database Plugin is a tool used store messages published to a RabbitMQ node or cluster, along with their properties, in a database backend engine of choice. On the configured database backend engine, e.g. [PostgreSQL](https://www.postgresql.org/), [MySQL](https://www.mysql.com/), [MSSQL](https://www.microsoft.com/en-in/sql-server/sql-server-2019), [RiakKV](https://docs.riak.com/index.html), e.t.c, the plugin creates a database of name `rabbitmq-db`, where it further creates 3 tables for storing messages and their properties upon interception when published to a RabbitMQ node or cluster. The tables created and used for storing messages and their metadata are:
 
 - `rabbitmq-message`
 - `rabbitmq-message-properties`
