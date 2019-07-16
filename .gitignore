@@ -12,6 +12,7 @@ MnesiaCore.*
 /doc/
 /ebin/
 /.fetch
+/log/
 /logs/
 /plugins/
 /xrefr
