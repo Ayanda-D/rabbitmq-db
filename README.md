@@ -50,6 +50,6 @@ config :rabbitmq_db, RabbitDB.Repo,
 
 ## License and Copyright
 
-(c) Erlang Solutions Ltd. 2017-2019
+(c) Erlang Solutions Ltd. 2017-2022
 
 https://www.erlang-solutions.com/
